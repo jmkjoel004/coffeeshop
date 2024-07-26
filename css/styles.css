@@ -1,0 +1,27 @@
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+  }
+
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  .col-md-4 {
+    background-color:#000;
+  }
+  
+  h5 {
+    color: #775;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+  }
+
