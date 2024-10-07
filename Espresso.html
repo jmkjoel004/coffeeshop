@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Espresso Coffee</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+        <div class="container-fluid mt-3">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Info</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">More</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="type" class="container-fluid mt-5">
+        <h3 class="text-center">Espresso offers several benefits that make it a favorite among coffee aficionados.</h3>
+        <table class="table table-light">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price ($)</th>
+                    <th>Ingredients</th>
+                    <th>Description</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Classic Espresso</td>
+                    <td>2.50</td>
+                    <td>Finely ground coffee, hot water</td>
+                    <td>A bold and rich coffee shot.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="2.50"></td>
+                </tr>
+                <tr>
+                    <td>Espresso Macchiato</td>
+                    <td>3.00</td>
+                    <td>Espresso, milk foam</td>
+                    <td>An espresso topped with a dollop of milk foam.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="3.00"></td>
+                </tr>
+                <tr>
+                    <td>Espresso Con Panna</td>
+                    <td>3.50</td>
+                    <td>Espresso, whipped cream</td>
+                    <td>A sweet treat with whipped cream on top of espresso.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="3.50"></td>
+                </tr>
+                <tr>
+                    <td>Americano</td>
+                    <td>2.75</td>
+                    <td>Espresso, hot water</td>
+                    <td>A diluted espresso for a milder flavor.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="2.75"></td>
+                </tr>
+                <tr>
+                    <td>Iced Espresso</td>
+                    <td>3.00</td>
+                    <td>Espresso, ice, cold water</td>
+                    <td>A refreshing iced espresso for a hot day.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="3.00"></td>
+                </tr>
+                <tr>
+                    <td>Affogato</td>
+                    <td>4.00</td>
+                    <td>Espresso, vanilla ice cream</td>
+                    <td>Espresso poured over a scoop of vanilla ice cream.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="4.00"></td>
+                </tr>
+                <tr>
+                    <td>Ristretto</td>
+                    <td>2.75</td>
+                    <td>Finely ground coffee, less water</td>
+                    <td>A shorter, more concentrated shot of espresso.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="2.75"></td>
+                </tr>
+                <tr>
+                    <td>Double Espresso</td>
+                    <td>3.50</td>
+                    <td>Twice the amount of coffee, hot water</td>
+                    <td>A stronger shot with double the coffee.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="3.50"></td>
+                </tr>
+                <tr>
+                    <td>Espresso Tonic</td>
+                    <td>4.00</td>
+                    <td>Espresso, tonic water, ice</td>
+                    <td>A refreshing mix of espresso and tonic water.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="4.00"></td>
+                </tr>
+                <tr>
+                    <td>Latte Macchiato</td>
+                    <td>3.50</td>
+                    <td>Steamed milk, espresso</td>
+                    <td>Espresso poured over layers of steamed milk.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="3.50"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-success" onclick="calculateTotal()">Calculate Total</button>
+        <h4 id="total" class="mt-3">Total: $0.00</h4>
+        <div>
+            <button type="button" class="btn btn-primary">Cash</button>
+            <button button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#card">credit/debit</button>
+            <div id ="card" class="navbar-collapse" >
+                <form action="/action_page.php" class="email container-fluid btn-primary">
+                    <div class="mb-3 mt-3">
+                        <label for="name">Name: </label>
+                        <input type="name" class="form-control" id="name" placeholder="Enter your name" name="name">
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <label for="email">email</label>
+                        <input type="email" class="form-control" id ="email" placeholder="Enter your email" name="email">
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id ="city" placeholder="Enter your city" name="city">
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <label for="email">State</label>
+                        <input type="text" class="form-control" id ="state" placeholder="Enter your state" name="state">
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <div class="form-group">
+                            <label for="expiration-month">Expiration Month</label>
+                            <select class="form-control" id="expiration-month" name="month" required>
+                                <option value="" disabled selected>Select a month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            
+                            <label for="expiration-year">Expiration Year</label>
+                            <select class="form-control" id="expiration-year" name="year" required>
+                                <option value="" disabled selected>Select a year</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                                <option value="2031">2031</option>
+                                <option value="2032">2032</option>
+                                <option value="2033">2033</option>
+                                <option value="2034">2034</option>
+                                <option value="2035">2035</option>
+                            </select>
+                            
+                            <div class="invalid-feedback">Please select both month and year.</div>
+                        </div>
+                        
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="credit"> credit card
+                            <input class="form-check-input" type="checkbox" name="debit"> debit card
+                        </label>
+                    </div>
+                    <label class="form-check-label"></label>
+                            <input class="form-check-input" type="checkbox" name="credit"> I agree
+                        </label>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Check this checkbox to continue.</div>
+                        <div> <button class="btn btn-primary">Submit</button> </div>
+                </form>
+            </div>
+    </div>
+    <footer>
+        <div class="container-fluid p-5 my-5 bg-dark text-white">
+            <p>Enjoy your espresso!</p>
+        </div>
+    </footer>
+    
+    <script>
+        function calculateTotal() {
+            const quantities = document.querySelectorAll('.quantity');
+            let total = 0;
+
+            quantities.forEach(input => {
+                const quantity = parseInt(input.value) || 0; // Get the quantity, default to 0
+                const price = parseFloat(input.dataset.price); // Get the price from data attribute
+                total += (quantity * price); // Calculate total
+            });
+            total +=0.5;
+            document.getElementById('total').innerText = `Total: $${total.toFixed(2)}`; // Display total
+        }
+    </script>
+</body>
+</html>

@@ -34,7 +34,7 @@
     <!-- Hero Section -->
     <section class="hero text-center py-5 bg-light">
         <div class="container">
-            <h2>Welcome to Our Coffee Shop</h2>
+            <h2>Welcome to Our Coffee Shop &#9749;</h2>
             <p>Enjoy the finest coffee in town.</p>
         </div>
     </section>
@@ -43,58 +43,69 @@
     <main class="container my-5">
         <section class="menu">
             <h2 class="text-center mb-4">Our Menu</h2>
-            <div class="row">
+            <div class="row" id="coffee">
+                <!-- Espresso -->
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <img src="jpg/espresso.jpg" class="card-img-top" alt="Coffee 1">
+                        <img src="jpg/espresso.jpg" class="card-img-top" alt="Espresso">
                         <div class="card-body">
-                            <h5 class="card-title">Espresso</h5>
+                            <button type="button" onclick="showCoffeeAlert('Espresso', 'Espresso.html')" class="btn btn-primary">Espresso</button>
                             <p class="card-text">Strong and bold coffee.</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Latte -->
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <img src="jpg/cafe-latte.jpg" class="card-img-top" alt="Coffee 2">
+                        <img src="jpg/cafe-latte.jpg" class=" card-img-top" alt="Latte">
                         <div class="card-body">
-                            <h5 class="card-title">Latte</h5>
+                            <button type="button" onclick="showCoffeeAlert('Latte', 'Latte.html')" class="btn btn-primary">Latte</button>
                             <p class="card-text">Smooth and creamy coffee.</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Cappuccino -->
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <img src="jpg/cappuccino.jpg" class="card-img-top" alt="Coffee 3">
+                        <img src="jpg/cappuccino.jpg" class="card-img-top" alt="Cappuccino">
                         <div class="card-body">
-                            <h5 class="card-title">Cappuccino</h5>
+                            <button type="button" onclick="showCoffeeAlert('Cappuccino', 'Cappuccino.html')" class="btn btn-primary">Cappuccino</button>
                             <p class="card-text">Rich and frothy coffee.</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Black Coffee -->
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <img src="jpg/blackcoffee.jpg" class="card-img-top" alt="Coffee 4">
+                        <img src="jpg/blackcoffee.jpg" class="card-img-top" alt="Black Coffee">
                         <div class="card-body">
-                            <h5 class="card-title">Black coffee</h5>
-                            <p class="card-text"> Strong as Death, and Sweet as Love.</p>
+                            <button type="button" onclick="showCoffeeAlert('Black Coffee', 'BlackCoffee.html')" class="btn btn-primary">Black Coffee</button>
+                            <p class="card-text">Strong as death, and sweet as love.</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Mocha Coffee -->
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <img src="jpg/mocha-coffee.jpeg" class="card-img-top" alt="Coffee 4">
+                        <img src="jpg/mocha-coffee.jpeg" class="card-img-top" alt="Mocha Coffee">
                         <div class="card-body">
-                            <h5 class="card-title">mocha coffee</h5>
-                            <p class="card-text"> sweet chocolatey taste and is often decorated with whipped cream.</p>
+                            <button type="button" onclick="showCoffeeAlert('Mocha Coffee', 'Mocha.html')" class="btn btn-primary">Mocha Coffee</button>
+                            <p class="card-text">Sweet chocolatey taste often decorated with whipped cream.</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Americano -->
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
-                        <img src="jpg/americano.jpeg" class="card-img-top" alt="Coffee 4">
+                        <img src="jpg/americano.jpeg" class="card-img-top" alt="Americano">
                         <div class="card-body">
-                            <h5 class="card-title">americano</h5>
-                            <p class="card-text"> the ultimate multitasker's companion.</p>
+                            <button type="button" onclick="showCoffeeAlert('Americano', 'Americano.html')" class="btn btn-primary">Americano</button>
+                            <p class="card-text">The ultimate multitasker's companion.</p>
                         </div>
                     </div>
                 </div>
@@ -104,6 +115,12 @@
 
     <!-- Footer Section -->
     <footer class="bg-dark text-white text-center py-3">
+        <div class="container-fluid">
+            <h5>Contact Us</h5>
+            <ul class="list-unstyled">
+                <li><a href="mailto:coffee@gmail.com">Email: coffee@gmail.com</a></li>
+            </ul>
+        </div>
         <p class="mb-0">&copy; 2024 Coffee Shop. All rights reserved.</p>
     </footer>
 
@@ -111,5 +128,17 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function showCoffeeAlert(coffeeName, coffeePage) {
+            const userResponse = confirm(`Click OK if you want ${coffeeName} coffee.`);
+            if (userResponse) {
+                alert(`Great! Enjoy your ${coffeeName}.`);
+                window.location.href = coffeePage;
+            } else {
+                alert("No problem! Let us know what you'd like.");
+            }
+        }
+    </script>
 </body>
 </html>
