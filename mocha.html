@@ -106,6 +106,58 @@
                 </tr>
             </tbody>
         </table>
+
+        <h3 class="text-center mt-5">Fresh Breads</h3>
+
+        <table class="table table-light">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price ($)</th>
+                    <th>Ingredients</th>
+                    <th>Description</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sourdough Bread</td>
+                    <td>3.00</td>
+                    <td>Flour, water, salt, starter</td>
+                    <td>A tangy and crusty loaf.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="3.00"></td>
+                </tr>
+                <tr>
+                    <td>Whole Wheat Bread</td>
+                    <td>2.50</td>
+                    <td>Whole wheat flour, water, yeast, salt</td>
+                    <td>Nutritious and hearty bread.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="2.50"></td>
+                </tr>
+                <tr>
+                    <td>Rye Bread</td>
+                    <td>3.50</td>
+                    <td>Rye flour, water, salt, yeast</td>
+                    <td>Rich and flavorful, great for sandwiches.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="3.50"></td>
+                </tr>
+                <tr>
+                    <td>Baguette</td>
+                    <td>2.00</td>
+                    <td>Flour, water, salt, yeast</td>
+                    <td>Crispy on the outside, soft on the inside.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="2.00"></td>
+                </tr>
+                <tr>
+                    <td>Focaccia</td>
+                    <td>3.00</td>
+                    <td>Flour, water, yeast, olive oil, salt</td>
+                    <td>Flat oven-baked Italian bread.</td>
+                    <td><input type="number" min="0" value="0" class="form-control quantity" data-price="3.00"></td>
+                </tr>
+            </tbody>
+        </table>
+
         <button class="btn btn-success" onclick="calculateTotal()">Calculate Total</button>
         <h4 id="total" class="mt-3">Total: $0.00</h4>
         <div>
