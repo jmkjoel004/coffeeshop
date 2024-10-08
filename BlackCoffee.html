@@ -199,9 +199,9 @@
             quantities.forEach(input => {
                 const quantity = parseInt(input.value) || 0; // Get the quantity, default to 0
                 const price = parseFloat(input.dataset.price); // Get the price from data attribute
-                total += (quantity * price) + 0.10; // Calculate total
+                total += (quantity * price) ; // Calculate total
             });
-
+            total += 0.50;
             document.getElementById('total').innerText = `Total: $${total.toFixed(2)}`; // Display total
         }
     </script>
