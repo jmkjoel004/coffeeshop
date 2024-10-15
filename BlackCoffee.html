@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Black Coffee</title>
 </head>
-<body>
+<body style = background-color:#5f4b2f class="text-white">
     <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
         <div class="container-fluid mt-3">
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -23,6 +23,9 @@
     <div id="type" class="container-fluid mt-5">
         <h3 class="text-center">Black coffee is a simple and robust choice that many coffee lovers cherish.</h3>
         <table class="table table-light">
+
+            <!--coffee -->
+            
             <thead>
                 <tr>
                     <th>Name</th>
@@ -221,13 +224,20 @@
                             <input class="form-check-input" type="checkbox" name="credit"> credit card
                             <input class="form-check-input" type="checkbox" name="debit"> debit card
                         </label>
-                    </div>
-                    <label class="form-check-label"></label>
-                            <input class="form-check-input" type="checkbox" name="credit"> I agree
-                        </label>
-                        <div class="valid-feedback">Valid.</div>
-                        <div class="invalid-feedback">Check this checkbox to continue.</div>
-                        <div> <button class="btn btn-primary">Submit</button> </div>
+                        <div>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submit" onclick="showReceipt()"> Submit</button>
+                        </div>
+                        <div class="modal fade" id="submit">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2>Receipt</h2>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body"></div>
+                                </div>
+                            </div>
+                        </div>
                 </form>
             </div>
     </div>
@@ -241,14 +251,34 @@
         function calculateTotal() {
             const quantities = document.querySelectorAll('.quantity');
             let total = 0;
+            let items = [];
 
             quantities.forEach(input => {
                 const quantity = parseInt(input.value) || 0; // Get the quantity, default to 0
                 const price = parseFloat(input.dataset.price); // Get the price from data attribute
-                total += (quantity * price) ; // Calculate total
+                const name = input.closest('tr').children[0].innerText; // Get the coffee name
+
+                if (quantity > 0) {
+                    total += (quantity * price); // Calculate total
+                    items.push(`${quantity} x ${name}`); // Add item to the list
+                }
             });
-            total += 0.50;
+            total += 0.50; // Add any additional charges
             document.getElementById('total').innerText = `Total: $${total.toFixed(2)}`; // Display total
+            return { total, items };
+        }
+
+        function showReceipt() {
+            const { total, items } = calculateTotal();
+            const name = document.getElementById('name').value;
+            const itemsList = items.join('<br>');
+
+            // Populate the modal body with the receipt details
+            document.querySelector('.modal-body').innerHTML = `
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Order:</strong><br>${itemsList}</p>
+                <p><strong>Total:</strong> $${total.toFixed(2)}</p>
+            `;
         }
     </script>
 </body>
